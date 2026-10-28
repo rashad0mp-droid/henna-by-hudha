@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your website questions | Henna by Hudha</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FBF7F0">
+<link rel="icon" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Jost:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#FBF7F0;--cream:#F4ECDF;--cream-2:#EADFCD;--paper:#FFFDF9;--henna:#4A2618;--henna-2:#6E3B24;--henna-deep:#2E160D;--brass:#B08A4A;--muted:#7A6457;
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--script:"Pinyon Script",cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--ivory);color:var(--henna);font-size:17px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+header{display:flex;align-items:center;gap:12px;padding:16px 20px}
+header img{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(176,138,74,.35)}
+header b{font-family:var(--script);font-weight:400;font-size:1.6rem;color:var(--henna-deep)}
+.prog{height:4px;background:var(--cream-2);margin:0 20px;border-radius:4px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--brass);transition:width .35s}
+.count{margin:8px 20px 0;font-size:.8rem;color:var(--muted)}
+main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:22px 20px 120px}
+.card{width:100%;max-width:560px}
+.kick{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.12;color:var(--henna-deep);margin:8px 0 8px}
+h1 em{font-style:italic;font-weight:500;color:var(--henna-2)}
+.help{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;background:var(--paper);border:1.5px solid var(--cream-2);border-radius:14px;padding:14px 16px;cursor:pointer;font-size:1rem}
+.opt input{accent-color:var(--henna);width:18px;height:18px;flex-shrink:0}
+.opt:has(input:checked){border-color:var(--henna);background:#FBF0E6}
+input[type=text],input[type=email],textarea{width:100%;font:inherit;font-size:1.05rem;padding:14px 16px;border:1.5px solid var(--cream-2);border-radius:14px;background:var(--paper);color:var(--henna)}
+textarea{min-height:150px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 4px rgba(176,138,74,.16)}
+.other{margin-top:10px}
+.preview{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.preview label{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;border:2px solid transparent;aspect-ratio:1/1}
+.preview img{width:100%;height:100%;object-fit:cover;display:block}
+.preview input{position:absolute;top:6px;right:6px;width:20px;height:20px;accent-color:#B3261E}
+.preview label:has(input:checked){border-color:#B3261E}
+.preview label:has(input:checked) img{opacity:.45}
+.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(251,247,240,.96);backdrop-filter:blur(8px);border-top:1px solid var(--cream-2);padding:12px 20px;display:flex;justify-content:space-between;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font:inherit;font-weight:500;font-size:1rem;border:0;cursor:pointer;text-decoration:none}
+.btn-h{background:var(--henna);color:var(--ivory);flex:1;max-width:260px;margin-left:auto}
+.btn-l{background:transparent;color:var(--henna-2);border:1.4px solid rgba(74,38,24,.3)}
+.skip{background:none;border:0;color:var(--muted);font:inherit;font-size:.9rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-top:14px}
+.sum{display:grid;gap:10px;margin-top:10px}
+.sum div{background:var(--paper);border:1px solid var(--cream-2);border-radius:12px;padding:10px 14px}
+.sum b{display:block;font-size:.78rem;color:var(--brass);letter-spacing:.04em}
+.sum span{white-space:pre-wrap}
+.sum button{background:none;border:0;color:var(--henna-2);font:inherit;font-size:.82rem;text-decoration:underline;cursor:pointer;margin-top:2px}
+.final{display:grid;gap:10px;margin-top:20px}
+.final .btn{max-width:none;margin:0}
+.ok{font-size:.9rem;color:#3d6b34;margin-top:6px;min-height:1.2em}
+</style>
+</head>
+<body>
+<header><img src="../images/logo.webp" alt=""><b>Henna by Hudha</b></header>
+<div class="prog"><i id="bar"></i></div>
+<p class="count" id="count"></p>
+<main><div class="card" id="card"></div></main>
+<div class="nav" id="nav"><button class="btn btn-l" id="back" type="button">Back</button><button class="btn btn-h" id="next" type="button">Next</button></div>
+
+<script>
+(function(){
+'use strict';
+var PHOTOS=['01','02','03','04','05','07','08','09','11'];
+var Q=[
+ {id:'intro', type:'intro'},
+ {id:'spelling', type:'single', q:'How should your <em>name</em> be spelled?', help:'Instagram says “Hudha”, the logo looks like “Huda”. The website will use one spelling everywhere.', opts:['Henna by Hudha','Henna by Huda'], other:'Something else'},
+ {id:'showName', type:'single', q:'Should your <em>own name</em> appear on the website?', opts:['Yes, show my name','No, only the brand name']},
+ {id:'realName', type:'text', q:'What name should we show?', help:'Exactly as you want visitors to see it.', ph:'e.g. Hudha', showIf:function(a){ return a.showName==='Yes, show my name'; }},
+ {id:'story', type:'long', q:'Tell your <em>story</em> in a few lines', help:'In your own words: how you started mehendi, what you love about it, what clients can expect. Malayalam or English is fine.', ph:'I started doing mehendi when…'},
+ {id:'years', type:'text', q:'How long have you been doing <em>mehendi</em>?', ph:'e.g. 3 years, since 2021'},
+ {id:'occasions', type:'multi', q:'Which <em>occasions</em> do you take bookings for?', help:'Tick all that apply.', opts:['Bridal','Engagement','Party','Eid','Baby shower','Haldi / Mehendi night','Kids'], other:'Other occasions'},
+ {id:'styles', type:'multi', q:'What do you call your <em>styles</em>?', help:'The site guessed these names from your photos. Tick the ones you use.', opts:['Floral','Mandala / palm-centre','Arabic','Indian / full bridal','Minimal'], other:'Other style names'},
+ {id:'travel', type:'single', q:'Do you go to the <em>client’s home or venue</em>?', opts:['Yes, I travel to the client','No, clients come to me','Both'], other:'Notes (areas, travel charge…)'},
+ {id:'areas', type:'text', q:'Which <em>places</em> do you cover?', help:'The site says Kozhikode & Malappuram. Add or correct towns.', ph:'e.g. Kozhikode, Malappuram, Manjeri…'},
+ {id:'lead', type:'single', q:'How far ahead should people <em>book</em>?', opts:['Same day is fine','2–3 days','1 week','2 weeks or more (bridal)'], other:'Other'},
+ {id:'groups', type:'single', q:'Do you take <em>group</em> bookings?', opts:['Yes','No'], other:'How many people at most?'},
+ {id:'prices', type:'single', q:'Should prices be shown on the website?', help:'Right now it says “Enquire for pricing”.', opts:['Keep “Enquire for pricing”','Show “starting from” prices'], other:'Starting prices (e.g. Bridal from ₹…)'},
+ {id:'email', type:'email', q:'An <em>email</em> address for the website?', help:'Optional. Leave empty if you prefer WhatsApp and Instagram only.', ph:'name@example.com'},
+ {id:'callNumber', type:'single', q:'Is <em>+91 75929 23616</em> OK for both WhatsApp and calls?', opts:['Yes, WhatsApp and calls','WhatsApp only, no calls'], other:'Use a different number'},
+ {id:'reviews', type:'long', q:'Any <em>client messages</em> you’re happy to show?', help:'Paste a few nice messages from clients, with first names only. Skip if you’d rather add them later.', ph:'“Loved my bridal mehendi!” – Fathima'},
+ {id:'brides', type:'text', q:'Roughly how many <em>brides</em> have you done?', help:'Optional. Only if you want it on the site.', ph:'e.g. 15'},
+ {id:'photos', type:'photos', q:'Any photo you <em>don’t</em> want on the site?', help:'Tap to mark photos to remove. Leave all unmarked if they’re all fine.'},
+ {id:'colours', type:'long', q:'Colours you <em>love</em> or <em>dislike</em>?', help:'The site uses ivory, henna brown and a little gold and lavender from your logo.', ph:'e.g. I love maroon, no bright pink'},
+ {id:'personal', type:'single', q:'Should your personal Instagram <em>@hudaifarashad</em> be linked?', opts:['No, only @henna___by___hudha','Yes, link it too']},
+ {id:'extra', type:'long', q:'Anything else you’d like on the <em>website</em>?', ph:'Anything at all…'},
+ {id:'done', type:'done'}
+];
+var KEY='hudha-questions-v1', A={}, i=0;
+try{ var saved=JSON.parse(localStorage.getItem(KEY)||'null'); if(saved){ A=saved.a||{}; i=saved.i||0; } }catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify({a:A,i:i})); }catch(e){} }
+function visible(k){ var q=Q[k]; return !q.showIf || q.showIf(A); }
+function steps(){ return Q.filter(function(q,k){ return visible(k) && q.type!=='intro' && q.type!=='done'; }); }
+var card=document.getElementById('card'), bar=document.getElementById('bar'), cnt=document.getElementById('count'), next=document.getElementById('next'), back=document.getElementById('back');
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function plain(h){ var d=document.createElement('div'); d.innerHTML=h; return d.textContent; }
+
+function render(){
+  var q=Q[i], list=steps(), pos=list.indexOf(q)+1;
+  bar.style.width = q.type==='done' ? '100%' : (pos? (pos-1)/list.length*100 : 0)+'%';
+  cnt.textContent = pos ? 'Question '+pos+' of '+list.length : '';
+  back.style.visibility = i===0 ? 'hidden' : 'visible';
+  next.style.display = q.type==='done' ? 'none' : '';
+  next.textContent = q.type==='intro' ? 'Start' : 'Next';
+  var v=A[q.id], h='';
+  if(q.type==='intro'){
+    h='<span class="kick">For your website</span><h1>A few <em>questions</em> for you</h1><p class="help">Rashad is building your mehendi website. These answers fill in the parts only you know. About 5 minutes, one question at a time. You can skip anything and come back later; your answers are saved on this phone.</p>';
+  } else if(q.type==='done'){
+    h='<span class="kick">All done</span><h1>Thank you <em>♡</em></h1><p class="help">Here are your answers. Tap “Send to Rashad” to open WhatsApp with everything ready, then pick Rashad and press send.</p><div class="sum" id="sum"></div><div class="final"><a class="btn btn-h" id="send" href="#" target="_blank" rel="noopener">Send to Rashad on WhatsApp</a><button class="btn btn-l" id="copy" type="button">Copy answers</button><p class="ok" id="ok"></p></div>';
+  } else {
+    h='<span class="kick">'+(q.id==='photos'?'Your photos':'Question '+pos)+'</span><h1>'+q.q+'</h1>'+(q.help?'<p class="help">'+q.help+'</p>':'');
+    if(q.type==='single'||q.type==='multi'){
+      var t=q.type==='single'?'radio':'checkbox', sel=v&&v.sel||(q.type==='multi'?[]:'');
+      h+='<div class="opts">'+q.opts.map(function(o){ var on=q.type==='multi'?sel.indexOf(o)>-1:sel===o; return '<label class="opt"><input type="'+t+'" name="o" value="'+esc(o)+'"'+(on?' checked':'')+'>'+esc(o)+'</label>'; }).join('')+'</div>';
+      if(q.other) h+='<input class="other" type="text" id="oth" placeholder="'+esc(q.other)+' (optional)" value="'+esc(v&&v.other||'')+'">';
+    } else if(q.type==='text'||q.type==='email'){
+      h+='<input type="'+q.type+'" id="txt" placeholder="'+esc(q.ph||'')+'" value="'+esc(v||'')+'">';
+    } else if(q.type==='long'){
+      h+='<textarea id="txt" placeholder="'+esc(q.ph||'')+'">'+esc(v||'')+'</textarea>';
+    } else if(q.type==='photos'){
+      var no=v||[];
+      h+='<div class="preview">'+PHOTOS.map(function(p){ return '<label><img src="../images/work-'+p+'.webp" alt="Photo '+p+'"><input type="checkbox" value="'+p+'"'+(no.indexOf(p)>-1?' checked':'')+' aria-label="Remove photo '+p+'"></label>'; }).join('')+'</div>';
+    }
+    h+='<div><button class="skip" type="button" id="skip">Skip, I’ll answer later</button></div>';
+  }
+  card.innerHTML=h;
+  var f=card.querySelector('#txt'); if(f) setTimeout(function(){ f.focus(); },60);
+  var sk=card.querySelector('#skip'); if(sk) sk.addEventListener('click',function(){ delete A[q.id]; go(1); });
+  if(q.type==='done') summary();
+  scrollTo(0,0);
+}
+function collect(){
+  var q=Q[i];
+  if(q.type==='single'){ var c=card.querySelector('input[name=o]:checked'), o=card.querySelector('#oth'); var val={sel:c?c.value:'', other:o?o.value.trim():''}; if(val.sel||val.other) A[q.id]=val; else delete A[q.id]; }
+  else if(q.type==='multi'){ var cs=[].map.call(card.querySelectorAll('input[name=o]:checked'),function(x){return x.value;}), o2=card.querySelector('#oth'); var v2={sel:cs, other:o2?o2.value.trim():''}; if(cs.length||v2.other) A[q.id]=v2; else delete A[q.id]; }
+  else if(q.type==='text'||q.type==='email'||q.type==='long'){ var t=card.querySelector('#txt').value.trim(); if(t) A[q.id]=t; else delete A[q.id]; }
+  else if(q.type==='photos'){ A[q.id]=[].map.call(card.querySelectorAll('.preview input:checked'),function(x){return x.value;}); }
+}
+function go(d){ var k=i+d; while(k>0 && k<Q.length-1 && !visible(k)) k+=d; i=Math.max(0,Math.min(Q.length-1,k)); save(); render(); }
+function answerText(q){
+  var v=A[q.id]; if(v===undefined || (Array.isArray(v)&&!v.length&&q.type!=='photos')) return '(skipped)';
+  if(q.type==='photos') return v.length ? 'Remove photos: '+v.join(', ') : 'All photos are fine';
+  if(typeof v==='string') return v;
+  var parts=[]; if(Array.isArray(v.sel)){ if(v.sel.length) parts.push(v.sel.join(', ')); } else if(v.sel) parts.push(v.sel);
+  if(v.other) parts.push(v.other); return parts.join(' — ') || '(skipped)';
+}
+function summary(){
+  var s=document.getElementById('sum'), txt='Henna by Hudha – website answers\n\n';
+  Q.forEach(function(q,k){ if(q.type==='intro'||q.type==='done'||!visible(k)) return;
+    var a=answerText(q), title=plain(q.q);
+    txt+='• '+title+'\n  '+a.replace(/\n/g,'\n  ')+'\n\n';
+    var d=document.createElement('div'); d.innerHTML='<b>'+esc(title)+'</b><span>'+esc(a)+'</span><br><button type="button">Change</button>';
+    d.querySelector('button').addEventListener('click',function(){ i=k; save(); render(); }); s.appendChild(d);
+  });
+  document.getElementById('send').href='https://wa.me/?text='+encodeURIComponent(txt);
+  document.getElementById('copy').addEventListener('click',function(){
+    var ok=document.getElementById('ok'), done=function(){ ok.textContent='Copied. Paste it in a message to Rashad.'; };
+    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(done,function(){ prompt('Copy your answers:',txt); }); else prompt('Copy your answers:',txt);
+  });
+}
+next.addEventListener('click',function(){ collect(); go(1); });
+back.addEventListener('click',function(){ collect(); go(-1); });
+render();
+window.hudhaQ={answers:function(){ return A; }};
+})();
+</script>
+</body>
+</html>

@@ -252,7 +252,7 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
         <a class="btn btn-henna" href="#" data-wa><svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</a>
         <a class="btn btn-line" href="https://www.instagram.com/henna___by___hudha" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@henna___by___hudha</a>
       </div>
-      <p class="spell">Brand spelling: “Hudha” (Instagram) or “Huda” (logo)? <span class="conf">CONFIRM</span> &nbsp;·&nbsp; WhatsApp number <span class="conf">CONFIRM</span></p>
+      <p class="spell">Brand spelling: “Hudha” (Instagram) or “Huda” (logo)? <span class="conf">CONFIRM</span></p>
       <div class="chips"><span>Bridal</span><span>Party</span><span>Engagement</span><span>Eid</span></div>
     </div>
 
@@ -424,7 +424,7 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
   <div class="w">
     <div class="ft">
       <div><a class="brand" href="#top"><img src="images/logo.webp" alt="" width="46" height="46"><b data-brand>Henna by Hudha</b></a><p>Bridal, party and engagement mehendi in Kozhikode &amp; Malappuram, Kerala.</p></div>
-      <div><p style="margin:0"><a href="https://www.instagram.com/henna___by___hudha" target="_blank" rel="noopener">Instagram @henna___by___hudha</a></p><p>WhatsApp <span class="conf">CONFIRM</span></p></div>
+      <div><p style="margin:0"><a href="https://www.instagram.com/henna___by___hudha" target="_blank" rel="noopener">Instagram @henna___by___hudha</a></p><p>WhatsApp <a href="https://wa.me/917592923616" target="_blank" rel="noopener">+91 75929 23616</a></p></div>
     </div>
     <div class="fb"><span>© <span data-brand>Henna by Hudha</span> · Photos from her Instagram</span><span class="preview">Preview — not yet the official website</span></div>
   </div>
@@ -439,7 +439,7 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
 var SITE = {
   brand: 'Henna by Hudha',   // CONFIRM spelling: Hudha or Huda
   short: 'Hudha',            // used in "Book Hudha"
-  whatsapp: '',              // CONFIRM: digits with country code, e.g. '919876543210'
+  whatsapp: '917592923616',  // India +91, digits only
   instagram: 'https://www.instagram.com/henna___by___hudha'
 };
 /* ===================================================== */
@@ -454,7 +454,7 @@ document.querySelectorAll('[data-wa]').forEach(function(a){
   var l=waLink('Hi! I found you through your website and would like to ask about mehendi.');
   if(l){ a.href=l; a.target='_blank'; a.rel='noopener'; } else { a.href='#enquire'; }
 });
-if(SITE.whatsapp) document.querySelectorAll('[data-wa-label]').forEach(function(el){ el.textContent='+'+SITE.whatsapp; });
+if(SITE.whatsapp) document.querySelectorAll('[data-wa-label]').forEach(function(el){ var n=SITE.whatsapp; el.textContent='+'+n.slice(0,2)+' '+n.slice(2,7)+' '+n.slice(7); });
 
 /* ===== gallery lightbox ===== */
 var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
