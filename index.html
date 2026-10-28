@@ -71,29 +71,44 @@ h2 em,h1 em{font-style:italic;font-weight:500;color:var(--henna-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .chips span{border:1px solid var(--cream-2);background:var(--paper);border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--henna-2)}
 
-/* paste to stain */
-.stain{position:relative;background:var(--cream);border-radius:28px;padding:18px;box-shadow:0 40px 70px -40px rgba(46,22,13,.55),inset 0 0 0 1px rgba(176,138,74,.2)}
-.stain-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:2px 6px 10px}
-.stage-chip{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--henna-2);background:var(--paper);border-radius:999px;padding:6px 12px;border:1px solid var(--cream-2)}
-.stage-chip i{width:12px;height:12px;border-radius:50%;background:#3E4521;box-shadow:inset 0 -2px 0 rgba(0,0,0,.25);transition:background .6s}
-.stain-top small{font-size:.78rem;color:var(--muted)}
-.canvas-wrap{position:relative;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,#FFFBF3,#F0E4D1);touch-action:none;cursor:crosshair;aspect-ratio:5/6}
-.canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.guide{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);font-family:var(--script);font-size:1.7rem;color:rgba(110,59,36,.6);pointer-events:none;transition:opacity .5s;white-space:nowrap;text-align:center;line-height:1.1}
-.guide small{display:block;font-family:var(--sans);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(122,100,87,.75);margin-top:6px}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 4px 2px}
-.timeline span{height:4px;border-radius:4px;background:var(--cream-2);transition:background .5s}
-.timeline span.on:nth-child(1){background:#3E4521}.timeline span.on:nth-child(2){background:#7A7A52}.timeline span.on:nth-child(3){background:#D8792F}.timeline span.on:nth-child(4){background:#6E2A14}
-.tl-lbl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 4px 0;font-size:.7rem;color:var(--muted);letter-spacing:.04em}
-.stain-ctrl{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
-.tbtn{background:none;border:0;font-family:var(--sans);font-size:.88rem;color:var(--henna-2);cursor:pointer;padding:6px 2px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(176,138,74,.6)}
+/* hero photo */
+.hero-photo{position:relative;margin:0;border-radius:200px 200px 26px 26px;overflow:hidden;aspect-ratio:545/640;box-shadow:0 40px 70px -40px rgba(46,22,13,.6),0 0 0 10px var(--paper),0 0 0 11px rgba(176,138,74,.3)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.5) sepia(.25) brightness(1.06);transform:scale(1.04);transition:filter 2.4s ease,transform 3s ease}
+.hero-photo.in img{filter:none;transform:none}
+.hero-photo figcaption{position:absolute;right:16px;bottom:16px;background:rgba(255,253,249,.92);border-radius:999px;padding:5px 14px;font-size:.78rem;color:var(--henna-2);white-space:nowrap}
+.hero-try{margin-top:14px;text-align:center;font-size:.9rem}
+.hero-try a{color:var(--henna-2)}
+.tbtn{background:none;border:0;font-family:var(--sans);font-size:.9rem;color:var(--henna-2);cursor:pointer;padding:6px 2px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(176,138,74,.6)}
 .tbtn:hover{color:var(--henna-deep)}
-.note{font-size:.74rem;color:var(--muted);margin:8px 6px 0}
-.done{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,253,249,.94);border-radius:14px;padding:10px 14px;text-align:center;box-shadow:0 18px 40px -20px rgba(46,22,13,.6);opacity:0;transform:translateY(12px);transition:all .5s;pointer-events:none}
-.done.show{opacity:1;transform:none;pointer-events:auto}
-.done b{display:block;font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--henna-deep);line-height:1.15}
-.done p{font-size:.8rem;color:var(--muted);margin:2px 0 8px;line-height:1.4}
-.done .btn{padding:9px 18px;font-size:.88rem}
+
+/* try-on */
+.tryon{padding:96px 0;background:var(--cream)}
+.t-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:start}
+.pick h3{font-size:1.5rem;margin-bottom:12px}
+.designs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dz{background:var(--paper);border:1.5px solid var(--cream-2);border-radius:16px;padding:12px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:border-color .2s,transform .2s}
+.dz:hover{transform:translateY(-2px)}
+.dz.on{border-color:var(--henna);box-shadow:0 0 0 3px rgba(74,38,24,.12)}
+.dz img{width:100%;aspect-ratio:1/1;object-fit:contain;background:radial-gradient(circle,#F1DCC4 0 60%,#FBF7F0 61%);border-radius:50%;padding:10px}
+.dz b{display:block;font-family:var(--serif);font-weight:600;font-size:1.1rem;margin-top:8px;color:var(--henna-deep)}
+.dz span{font-size:.78rem;color:var(--muted)}
+.howto{margin-top:18px;font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.studio{background:var(--paper);border-radius:22px;padding:16px;box-shadow:0 30px 60px -40px rgba(46,22,13,.5)}
+.screen{position:relative;border-radius:16px;overflow:hidden;background:#2E160D;aspect-ratio:3/4}
+.screen canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.screen video{display:none}
+.empty-s{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:rgba(251,247,240,.85);padding:24px}
+.empty-s b{font-family:var(--serif);font-weight:600;font-size:1.5rem;color:var(--ivory)}
+.empty-s svg{width:46px;height:46px;opacity:.8}
+.status{position:absolute;left:12px;top:12px;background:rgba(255,253,249,.92);color:var(--henna-2);border-radius:999px;padding:5px 12px;font-size:.8rem;display:none}
+.status.show{display:block}
+.s-ctrl{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.s-ctrl .btn{padding:11px 18px;font-size:.9rem}
+.size{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.84rem;color:var(--muted)}
+.size input{flex:1;accent-color:var(--henna)}
+.s-note{font-size:.76rem;color:var(--muted);margin-top:10px}
+.after{display:none;margin-top:12px;gap:10px;flex-wrap:wrap}
+.after.show{display:flex}
 
 /* gallery */
 .gallery{padding:96px 0}
@@ -190,7 +205,8 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
 @media (max-width:980px){
   .bar nav a{display:none}
   .hero-grid,.ab-grid,.e-grid{grid-template-columns:minmax(0,1fr)}
-  .stain{max-width:520px;width:100%;margin:0 auto}
+  .hero-photo{max-width:460px;width:100%;margin:0 auto}
+  .t-grid{grid-template-columns:minmax(0,1fr)}
   .masonry{columns:2}
   .svc-grid{grid-template-columns:1fr 1fr}
 }
@@ -202,7 +218,7 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
   .svc-grid,.price,.facts{grid-template-columns:1fr}
   form.e-form{grid-template-columns:1fr;padding:22px}
   .mbar{display:flex}
-  .stain{padding:12px;border-radius:22px}
+  .hero-photo{border-radius:160px 160px 22px 22px}
 }
 </style>
 </head>
@@ -219,7 +235,7 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
 <header class="bar" id="bar">
   <a class="brand" href="#top" aria-label="Home"><img src="images/logo.webp" alt="" width="46" height="46"><b data-brand>Henna by Hudha</b></a>
   <nav aria-label="Main">
-    <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#enquire">Enquire</a>
+    <a href="#work">Work</a><a href="#try">Try it on</a><a href="#about">About</a><a href="#services">Services</a><a href="#enquire">Enquire</a>
     <a class="btn btn-henna" href="#" data-wa><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   </nav>
 </header>
@@ -240,23 +256,9 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
       <div class="chips"><span>Bridal</span><span>Party</span><span>Engagement</span><span>Eid</span></div>
     </div>
 
-    <div class="stain" id="stain">
-      <div class="stain-top">
-        <span class="stage-chip"><i id="dot"></i><span id="stageTxt">Fresh paste</span></span>
-        <small>Draw on the hand</small>
-      </div>
-      <div class="canvas-wrap" id="wrap" role="img" aria-label="Draw henna on a hand with your finger or mouse. The paste dries and the stain deepens over a few seconds.">
-        <canvas id="cv"></canvas>
-        <div class="guide" id="guide">Draw on the palm<small>with your finger or mouse</small></div>
-        <div class="done" id="done"><b>Want the real thing?</b><p>That's a few seconds here. On real skin the stain keeps deepening for a day or two.</p><a class="btn btn-henna" href="#" data-wa><svg aria-hidden="true"><use href="#i-wa"/></svg>Book <span data-short>Hudha</span></a></div>
-      </div>
-      <div class="timeline" aria-hidden="true"><span id="t1" class="on"></span><span id="t2"></span><span id="t3"></span><span id="t4"></span></div>
-      <div class="tl-lbl" aria-hidden="true"><span>Fresh paste</span><span>Drying</span><span>First stain</span><span>Deep stain</span></div>
-      <div class="stain-ctrl">
-        <button class="tbtn" type="button" id="auto">Draw a mandala for me</button>
-        <button class="tbtn" type="button" id="clear">Clear the hand</button>
-      </div>
-      <p class="note">An illustration of how henna develops, sped up from hours to seconds.</p>
+    <div>
+      <figure class="hero-photo" id="heroPhoto"><img src="images/work-01.webp" width="545" height="640" alt="Floral mehendi on the back of a hand, styled with ivory fabric, baby's breath and a brass lantern"><figcaption>Recent work · back of hand</figcaption></figure>
+      <p class="hero-try"><a href="#try">Try one of her designs on your own hand →</a></p>
     </div>
   </div>
 </section>
@@ -283,6 +285,55 @@ footer{background:var(--henna-deep);color:rgba(251,247,240,.72);padding:64px 0 1
       <figure class="tile rv"><img src="images/work-11.webp" width="640" height="640" loading="lazy" alt="Circular palm-centre mehendi"><figcaption>Palm · centre circle</figcaption></figure>
     </div>
     <p class="g-foot rv">Style names are a first guess <span class="conf">CONFIRM</span> · More on <a href="https://www.instagram.com/henna___by___hudha" target="_blank" rel="noopener">Instagram</a></p>
+  </div>
+</section>
+
+<!-- Try a design on your hand -->
+<section class="tryon" id="try" aria-labelledby="try-h">
+  <div class="w">
+    <div class="sec-head rv">
+      <span class="kicker">Try it on</span>
+      <h2 id="try-h">See her design <em>on your hand</em></h2>
+      <p>Pick a design, then take a photo of your palm or use your camera. It's a preview only: real henna is drawn by hand and every piece comes out a little different.</p>
+    </div>
+    <div class="t-grid">
+      <div class="pick rv">
+        <h3>1. Choose a design</h3>
+        <div class="designs" id="designs">
+          <button type="button" class="dz on" data-d="palm-mandala" data-k="1.05" data-y="0.5"><img src="designs/palm-mandala.png" alt="Palm mandala design"><b>Palm mandala</b><span>From her Sep 19 post</span></button>
+          <button type="button" class="dz" data-d="palm-circle" data-k="1.1" data-y="0.5"><img src="designs/palm-circle.png" alt="Floral palm circle design"><b>Floral circle</b><span>From her Aug 23 post</span></button>
+          <button type="button" class="dz" data-d="floral-chain" data-k="1.35" data-y="0.62"><img src="designs/floral-chain.png" alt="Flowers joined by bead chains"><b>Flower chain</b><span>From her Aug 31 post</span></button>
+          <button type="button" class="dz" data-d="back-mandala" data-k="0.62" data-y="0.5"><img src="designs/back-mandala.png" alt="Small solid-centre mandala"><b>Small mandala</b><span>From her Sep 18 post</span></button>
+        </div>
+        <div class="howto">
+          <span>2. Hold your palm up, fingers together, in good light.</span>
+          <span>3. Use the slider to make it bigger or smaller.</span>
+          <span>4. Like it? Send it to her and book that design.</span>
+        </div>
+      </div>
+      <div class="studio rv">
+        <div class="screen" id="screen">
+          <canvas id="tc"></canvas>
+          <video id="vid" playsinline muted></video>
+          <div class="empty-s" id="emptyS">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-6.5a1.5 1.5 0 0 1 3 0V12m0-4.5a1.5 1.5 0 0 1 3 0V13m-9 0-1.6-2a1.6 1.6 0 0 0-2.6 1.9L7 18a6 6 0 0 0 5 3h1a6 6 0 0 0 6-6v-5a1.5 1.5 0 0 0-3 0"/></svg>
+            <b>Your hand goes here</b>
+            <span>Take or upload a photo of your open palm</span>
+          </div>
+          <div class="status" id="tStatus"></div>
+        </div>
+        <div class="s-ctrl">
+          <label class="btn btn-henna" for="tFile" style="margin:0">Take / upload a photo<input id="tFile" type="file" accept="image/*" capture="environment" hidden></label>
+          <button class="btn btn-line" type="button" id="tCam">Use live camera</button>
+        </div>
+        <div class="size"><span>Smaller</span><input type="range" id="tSize" min="60" max="150" value="100" aria-label="Design size"><span>Bigger</span></div>
+        <div class="after" id="tAfter">
+          <a class="btn btn-henna" href="#" id="tBook"><svg aria-hidden="true"><use href="#i-wa"/></svg>Book this design</a>
+          <button class="btn btn-line" type="button" id="tSave">Save picture</button>
+        </div>
+        <p class="s-note">Your photo stays on your phone. Nothing is uploaded. Hand tracking by Google MediaPipe.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -405,154 +456,6 @@ document.querySelectorAll('[data-wa]').forEach(function(a){
 });
 if(SITE.whatsapp) document.querySelectorAll('[data-wa-label]').forEach(function(el){ el.textContent='+'+SITE.whatsapp; });
 
-/* ===== paste to stain ===== */
-var wrap=document.getElementById('wrap'), cv=document.getElementById('cv'), ctx=cv.getContext('2d');
-var guide=document.getElementById('guide'), done=document.getElementById('done'), stageTxt=document.getElementById('stageTxt'), dot=document.getElementById('dot');
-var T=[document.getElementById('t1'),document.getElementById('t2'),document.getElementById('t3'),document.getElementById('t4')];
-var W=0,H=0,dpr=1,S=1, handPath=null, segs=[], lastP=null, drawing=false, lastDraw=0, shownDone=false;
-// stain timing in ms (sped up): paste -> drying -> orange stain -> deep maroon
-var A=1400, B=2600, C=3600, D=8200;
-var PASTE=[62,69,33], DRY=[122,118,84], ORANGE=[216,121,47], DEEP=[110,42,20];
-
-function lerp(a,b,t){ return a+(b-a)*t; }
-function mixc(a,b,t){ return [lerp(a[0],b[0],t),lerp(a[1],b[1],t),lerp(a[2],b[2],t)]; }
-function colAt(age){
-  if(age<A) return {c:PASTE, raised:1};
-  if(age<B){ var t=(age-A)/(B-A); return {c:mixc(PASTE,DRY,t), raised:1-t*0.4}; }
-  if(age<C){ var t2=(age-B)/(C-B); return {c:mixc(DRY,ORANGE,t2), raised:0.6*(1-t2)}; }
-  if(age<D){ var t3=(age-C)/(D-C); t3=t3*(2-t3); return {c:mixc(ORANGE,DEEP,t3), raised:0}; }
-  return {c:DEEP, raised:0};
-}
-function stageOf(age){ return age<A?0:age<B?1:age<C?2:3; }
-
-/* hand outline in a 400 x 480 design space */
-function buildHand(){
-  var p=new Path2D();
-  function cap(x,y,w,h,rot){ var q=new Path2D(); var m=new DOMMatrix().translate(x,y).rotate(rot); var r=w/2;
-    var c=new Path2D(); c.roundRect(-r,-h,w,h+r,r); q.addPath(c,m); return q; }
-  // palm
-  var palm=new Path2D(); palm.roundRect(108,214,190,200,[70,64,86,86]); p.addPath(palm);
-  // wrist
-  var wr=new Path2D(); wr.roundRect(136,360,136,140,[30,30,0,0]); p.addPath(wr);
-  // fingers (base x, base y, width, length, angle)
-  p.addPath(cap(130,250,42,150,-9));
-  p.addPath(cap(178,232,44,188,-2));
-  p.addPath(cap(226,236,42,172,5));
-  p.addPath(cap(270,262,36,130,13));
-  // thumb
-  p.addPath(cap(122,352,44,128,-52));
-  return p;
-}
-var HAND=buildHand();
-
-function setup(){
-  var r=wrap.getBoundingClientRect(); dpr=Math.min(2,window.devicePixelRatio||1);
-  W=cv.width=Math.round(r.width*dpr); H=cv.height=Math.round(r.height*dpr);
-  S=Math.min(W/400, H/480)*0.96;
-  handPath=new Path2D(); handPath.addPath(HAND,new DOMMatrix().translate((W-400*S)/2,(H-480*S)/2+H*0.02).scale(S));
-  draw();
-}
-function toCanvas(px,py){ var r=wrap.getBoundingClientRect(); return {x:(px-r.left)*dpr, y:(py-r.top)*dpr}; }
-function inHand(x,y){ return ctx.isPointInPath(handPath,x,y); }
-
-function drawHand(){
-  ctx.clearRect(0,0,W,H);
-  // outline first, then fill on top: hides the seams where fingers overlap the palm
-  ctx.save();
-  ctx.shadowColor='rgba(46,22,13,.18)'; ctx.shadowBlur=30*dpr; ctx.shadowOffsetY=14*dpr;
-  ctx.strokeStyle='rgba(150,92,62,.55)'; ctx.lineWidth=3*dpr; ctx.lineJoin='round'; ctx.stroke(handPath);
-  ctx.restore();
-  var g=ctx.createLinearGradient(0,H*0.1,0,H); g.addColorStop(0,'#E9B994'); g.addColorStop(1,'#D9A27C');
-  ctx.fillStyle=g; ctx.fill(handPath);
-  // soft palm shading
-  ctx.save(); ctx.clip(handPath);
-  var rg=ctx.createRadialGradient(W*0.5,H*0.62,10,W*0.5,H*0.62,W*0.45); rg.addColorStop(0,'rgba(255,230,205,.35)'); rg.addColorStop(1,'rgba(160,96,62,.18)');
-  ctx.fillStyle=rg; ctx.fillRect(0,0,W,H);
-  ctx.restore();
-}
-function draw(){
-  drawHand();
-  if(!segs.length) return;
-  var now=performance.now(), buckets={};
-  ctx.save(); ctx.clip(handPath); ctx.lineCap='round'; ctx.lineJoin='round';
-  for(var i=0;i<segs.length;i++){ var s=segs[i], age=now-s.t, q=Math.min(40,Math.floor(age/200)); var k=q+'|'+s.w; (buckets[k]=buckets[k]||{age:q*200+100,w:s.w,list:[]}).list.push(s); }
-  Object.keys(buckets).forEach(function(k){
-    var b=buckets[k], col=colAt(b.age), c=col.c;
-    ctx.strokeStyle='rgb('+(c[0]|0)+','+(c[1]|0)+','+(c[2]|0)+')'; ctx.lineWidth=b.w*dpr;
-    ctx.beginPath(); b.list.forEach(function(s){ ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2); }); ctx.stroke();
-    if(col.raised>0.05){ // wet paste sheen
-      ctx.strokeStyle='rgba(255,255,240,'+(0.22*col.raised)+')'; ctx.lineWidth=Math.max(1,b.w*0.28)*dpr;
-      ctx.beginPath(); b.list.forEach(function(s){ ctx.moveTo(s.x1-0.8*dpr,s.y1-0.8*dpr); ctx.lineTo(s.x2-0.8*dpr,s.y2-0.8*dpr); }); ctx.stroke();
-    }
-  });
-  ctx.restore();
-}
-function addSeg(a,b,w,t){ segs.push({x1:a.x,y1:a.y,x2:b.x,y2:b.y,w:w,t:t||performance.now()}); if(segs.length>9000) segs.splice(0,segs.length-9000); lastDraw=performance.now(); }
-
-function updateUI(){
-  if(!segs.length){ T.forEach(function(t,i){ t.classList.toggle('on',i===0); }); stageTxt.textContent='Fresh paste'; dot.style.background='rgb(62,69,33)'; return; }
-  var newest=segs[segs.length-1].t, age=performance.now()-newest, st=stageOf(age);
-  T.forEach(function(t,i){ t.classList.toggle('on', i<=st); });
-  stageTxt.textContent=['Fresh paste','Paste drying','First stain','Deep stain'][st];
-  var c=colAt(age).c; dot.style.background='rgb('+(c[0]|0)+','+(c[1]|0)+','+(c[2]|0)+')';
-  if(st===3 && age>D && segs.length>40 && !shownDone && !drawing){ shownDone=true; done.classList.add('show'); }
-}
-function loop(){ var now=performance.now(); if(segs.length && now-lastDraw < D+400) draw(); updateUI(); requestAnimationFrame(loop); }
-
-/* pointer drawing */
-function down(e){ if(e.target.closest('.done')) return; drawing=true; guide.style.opacity=0; done.classList.remove('show'); shownDone=false; var p=toCanvas(e.clientX,e.clientY); lastP=inHand(p.x,p.y)?p:null; wrap.setPointerCapture&&wrap.setPointerCapture(e.pointerId); }
-function move(e){ if(!drawing) return; var p=toCanvas(e.clientX,e.clientY); if(!inHand(p.x,p.y)){ lastP=null; return; }
-  if(lastP){ var dx=p.x-lastP.x, dy=p.y-lastP.y; if(dx*dx+dy*dy < 2*dpr*dpr) return; addSeg(lastP,p,4.2*S/dpr*1.0+1.2); }
-  lastP=p; }
-function up(){ drawing=false; lastP=null; }
-wrap.addEventListener('pointerdown',down); wrap.addEventListener('pointermove',move);
-['pointerup','pointercancel','pointerleave'].forEach(function(t){ wrap.addEventListener(t,up); });
-
-/* "draw a mandala for me": palm-centre mandala + fingertip caps, piped on stroke by stroke */
-function mandalaStrokes(){
-  var ox=(W-400*S)/2, oy=(H-480*S)/2+H*0.02;
-  function P(x,y){ return {x:ox+x*S, y:oy+y*S}; }
-  var cx=203, cy=300, L=[];
-  function circle(r,n){ var pts=[]; for(var i=0;i<=n;i++){ var a=i/n*Math.PI*2; pts.push(P(cx+Math.cos(a)*r, cy+Math.sin(a)*r)); } L.push(pts); }
-  circle(4,10); circle(10,20); circle(17,32);
-  for(var k=0;k<10;k++){ // teardrop petals: out along one side, back along the other
-    var a0=k/10*Math.PI*2, pts=[];
-    for(var j=0;j<=20;j++){ var t=j/20, side=t<=.5?1:-1, u=t<=.5?t*2:(1-t)*2, r=18+u*24, spread=Math.sin(u*Math.PI)*0.2*side; pts.push(P(cx+Math.cos(a0+spread)*r, cy+Math.sin(a0+spread)*r)); }
-    L.push(pts); }
-  circle(46,64);
-  for(var k2=0;k2<20;k2++){ var a1=k2/20*Math.PI*2, a2=(k2+1)/20*Math.PI*2, pts2=[]; // scallops
-    for(var j2=0;j2<=8;j2++){ var t2=j2/8, aa2=lerp(a1,a2,t2), rr2=46+Math.sin(t2*Math.PI)*8; pts2.push(P(cx+Math.cos(aa2)*rr2, cy+Math.sin(aa2)*rr2)); } L.push(pts2); }
-  for(var k3=0;k3<20;k3++){ var a3=(k3+.5)/20*Math.PI*2; L.push([P(cx+Math.cos(a3)*60,cy+Math.sin(a3)*60),P(cx+Math.cos(a3)*61,cy+Math.sin(a3)*61)]); }
-  // wrist band: two lines with a dotted row between
-  [430,446].forEach(function(y){ var pts3=[]; for(var x=146;x<=262;x+=6) pts3.push(P(x,y)); L.push(pts3); });
-  for(var x2=152;x2<=258;x2+=9) L.push([P(x2,438),P(x2+1,438)]);
-  // fingers: two thin bands mid-finger + a filled tip
-  [[130,250,-9,150],[178,232,-2,188],[226,236,5,172],[270,262,13,130]].forEach(function(f){
-    var rad=f[2]*Math.PI/180; function F(along,across){ var x=f[0]+Math.sin(rad)*along+Math.cos(rad)*across, y=f[1]-Math.cos(rad)*along+Math.sin(rad)*across; return P(x,y); }
-    for(var b=0;b<2;b++){ var al=f[3]*0.5+b*6, pts4=[]; for(var c=-15;c<=15;c+=3) pts4.push(F(al,c)); L.push(pts4); }
-    var tipStart=f[3]-24; L.push((function(){ var a=[]; for(var c=-15;c<=15;c+=3) a.push(F(tipStart,c)); return a; })());
-    for(var row=0;row<9;row++){ var al2=tipStart+3+row*2.6, half=Math.max(3,15-Math.pow(row/8,2)*10), pts5=[]; for(var c2=-half;c2<=half;c2+=2.5) pts5.push(F(al2,c2)); L.push(pts5); }
-  });
-  return L;
-}
-var autoTimer=null;
-function autoDraw(){
-  if(autoTimer) return;
-  guide.style.opacity=0; done.classList.remove('show'); shownDone=false;
-  var L=mandalaStrokes(), li=0, pi=1, w=2.6*S/dpr+0.8;
-  if(reduce){ var t=performance.now()-D-1; L.forEach(function(pts){ for(var i=1;i<pts.length;i++) addSeg(pts[i-1],pts[i],w,t); }); draw(); return; }
-  autoTimer=setInterval(function(){
-    for(var n=0;n<6 && li<L.length;n++){ var pts=L[li]; addSeg(pts[pi-1],pts[pi],w); pi++; if(pi>=pts.length){ li++; pi=1; } }
-    if(li>=L.length){ clearInterval(autoTimer); autoTimer=null; }
-  },16);
-}
-document.getElementById('auto').addEventListener('click',autoDraw);
-document.getElementById('clear').addEventListener('click',function(){ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } segs=[]; shownDone=false; done.classList.remove('show'); guide.style.opacity=1; draw(); });
-done.addEventListener('pointerdown',function(e){ e.stopPropagation(); });
-
-setup(); loop();
-var rt; addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ var ow=W, oh=H; setup(); if(ow && (Math.abs(ow-W)>4)){ var k=W/ow, k2=H/oh; segs.forEach(function(s){ s.x1*=k; s.x2*=k; s.y1*=k2; s.y2*=k2; }); draw(); } },200); });
-
 /* ===== gallery lightbox ===== */
 var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
 document.getElementById('masonry').addEventListener('click',function(e){ var t=e.target.closest('.tile'); if(!t) return; var im=t.querySelector('img'); lbImg.src=im.src; lbImg.alt=im.alt; lb.classList.add('show'); });
@@ -574,6 +477,9 @@ form.addEventListener('submit',function(e){
   ok.classList.add('show');
 });
 
+/* hero photo warms up from paste tone to full colour */
+var hp=document.getElementById('heroPhoto'); var hpi=hp.querySelector('img'); function warm(){ setTimeout(function(){ hp.classList.add('in'); }, reduce?0:200); } if(hpi.complete) warm(); else hpi.addEventListener('load',warm);
+
 /* header + reveal */
 var bar=document.getElementById('bar');
 addEventListener('scroll',function(){ bar.classList.toggle('solid', scrollY>30); },{passive:true});
@@ -582,6 +488,117 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 } else document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
 })();
+</script>
+<script type="module">
+/* ===== Try-on: MediaPipe hand landmarks, runs on the visitor's device ===== */
+const MP = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14';
+const MODEL = 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task';
+const tc = document.getElementById('tc'), ctx = tc.getContext('2d');
+const vid = document.getElementById('vid'), emptyS = document.getElementById('emptyS'), st = document.getElementById('tStatus');
+const sizeEl = document.getElementById('tSize'), after = document.getElementById('tAfter');
+const designs = {}, cards = [...document.querySelectorAll('#designs .dz')];
+let current = cards[0], landmarker = null, mode = null, photo = null, lastLm = null, mirrored = false, raf = 0, stream = null;
+
+cards.forEach(c => { const im = new Image(); im.src = 'designs/' + c.dataset.d + '.png'; designs[c.dataset.d] = im;
+  c.addEventListener('click', () => { cards.forEach(x => x.classList.toggle('on', x === c)); current = c; redraw(); updateBook(); }); });
+sizeEl.addEventListener('input', redraw);
+
+function say(t){ st.textContent = t; st.classList.toggle('show', !!t); }
+async function getLandmarker(runningMode){
+  if (!landmarker){
+    say('Loading hand tracking…');
+    const { FilesetResolver, HandLandmarker } = await import(MP + '/vision_bundle.mjs');
+    const fs = await FilesetResolver.forVisionTasks(MP + '/wasm');
+    const make = d => HandLandmarker.createFromOptions(fs, { baseOptions:{ modelAssetPath: MODEL, delegate: d }, runningMode, numHands: 1 });
+    try { landmarker = await make('GPU'); } catch(e){ landmarker = await make('CPU'); }
+    landmarker._mode = runningMode;
+  }
+  if (landmarker._mode !== runningMode){ await landmarker.setOptions({ runningMode }); landmarker._mode = runningMode; }
+  return landmarker;
+}
+
+function fit(w, h){
+  const r = tc.parentElement.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+  tc.width = Math.round(r.width * dpr); tc.height = Math.round(r.height * dpr);
+  const s = Math.max(tc.width / w, tc.height / h);   // cover
+  return { s, ox: (tc.width - w * s) / 2, oy: (tc.height - h * s) / 2 };
+}
+function drawDesign(lm, map){
+  if (!lm || !current) return;
+  const img = designs[current.dataset.d]; if (!img.complete) return;
+  const P = i => ({ x: map.ox + (mirrored ? 1 - lm[i].x : lm[i].x) * map.w * map.s, y: map.oy + lm[i].y * map.h * map.s });
+  const w0 = P(0), m9 = P(9), i5 = P(5), p17 = P(17);
+  const t = parseFloat(current.dataset.y);                     // how far from wrist toward fingers
+  const cx = w0.x + (m9.x - w0.x) * t, cy = w0.y + (m9.y - w0.y) * t;
+  const palmW = Math.hypot(i5.x - p17.x, i5.y - p17.y);
+  const size = palmW * parseFloat(current.dataset.k) * (sizeEl.value / 100);
+  const ang = Math.atan2(m9.y - w0.y, m9.x - w0.x) + Math.PI / 2; // design "up" points to the fingers
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(ang);
+  ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = 0.92;
+  const ar = img.width / img.height; ctx.drawImage(img, -size / 2, -size / ar / 2, size, size / ar);
+  ctx.restore(); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+}
+function redraw(){
+  if (mode === 'photo' && photo){
+    const map = fit(photo.width, photo.height); map.w = photo.width; map.h = photo.height;
+    ctx.drawImage(photo, map.ox, map.oy, photo.width * map.s, photo.height * map.s);
+    drawDesign(lastLm, map);
+  }
+}
+function updateBook(){
+  const name = current.querySelector('b').textContent, b = document.getElementById('tBook');
+  const n = (window.SITE && SITE.whatsapp) || '';
+  b.href = n ? 'https://wa.me/' + n + '?text=' + encodeURIComponent('Hi! I tried the "' + name + '" design on your website and would like to book it.') : '#enquire';
+}
+
+document.getElementById('tFile').addEventListener('change', async e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  stopCam();
+  const im = new Image(); im.src = URL.createObjectURL(f); await im.decode();
+  photo = im; mode = 'photo'; mirrored = false; emptyS.style.display = 'none'; lastLm = null; redraw();
+  try {
+    const lmk = await getLandmarker('IMAGE');
+    const res = lmk.detect(im);
+    lastLm = res.landmarks && res.landmarks[0] || null;
+    say(lastLm ? '' : 'No hand found. Try your open palm in good light.');
+    redraw(); after.classList.toggle('show', !!lastLm); updateBook();
+  } catch(err){ say('Hand tracking could not load. Please check your connection.'); console.warn(err); }
+  e.target.value = '';
+});
+
+async function startCam(){
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 960 } }, audio: false });
+  } catch(err){ say('Camera not available. Try "Take / upload a photo".'); return; }
+  vid.srcObject = stream; await vid.play();
+  mode = 'cam'; mirrored = true; emptyS.style.display = 'none';
+  const lmk = await getLandmarker('VIDEO'); say('Show your open palm to the camera');
+  const loop = () => {
+    if (mode !== 'cam') return;
+    const map = fit(vid.videoWidth, vid.videoHeight); map.w = vid.videoWidth; map.h = vid.videoHeight;
+    ctx.save(); ctx.translate(tc.width, 0); ctx.scale(-1, 1);
+    ctx.drawImage(vid, tc.width - map.ox - vid.videoWidth * map.s, map.oy, vid.videoWidth * map.s, vid.videoHeight * map.s); ctx.restore();
+    const res = lmk.detectForVideo(vid, performance.now());
+    lastLm = res.landmarks && res.landmarks[0] || null;
+    if (lastLm){ say(''); drawDesign(lastLm, map); after.classList.add('show'); updateBook(); } else say('Show your open palm to the camera');
+    raf = requestAnimationFrame(loop);
+  };
+  loop();
+  document.getElementById('tCam').textContent = 'Stop camera';
+}
+function stopCam(){
+  if (stream){ stream.getTracks().forEach(t => t.stop()); stream = null; }
+  cancelAnimationFrame(raf); if (mode === 'cam') mode = null;
+  document.getElementById('tCam').textContent = 'Use live camera';
+}
+document.getElementById('tCam').addEventListener('click', () => { if (mode === 'cam') { stopCam(); say(''); } else startCam(); });
+document.getElementById('tSave').addEventListener('click', () => {
+  const a = document.createElement('a'); a.download = 'my-henna-preview.jpg'; a.href = tc.toDataURL('image/jpeg', 0.9); a.click();
+});
+addEventListener('resize', () => { if (mode === 'photo') redraw(); });
+updateBook();
+/* for automated checks */
+window.hudhaTryOn = { status: () => st.textContent, hasHand: () => !!lastLm };
 </script>
 </body>
 </html>
