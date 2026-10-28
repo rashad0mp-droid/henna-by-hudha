@@ -66,12 +66,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0
 <script>
 (function(){
 'use strict';
-var PHOTOS=['01','02','03','04','05','07','08','09','11'];
+var PHOTOS=['01','02','04','05','07','08'];
 var Q=[
  {id:'intro', type:'intro'},
  {id:'spelling', type:'single', q:'How should your <em>name</em> be spelled?', help:'Instagram says “Hudha”, the logo looks like “Huda”. The website will use one spelling everywhere.', opts:['Henna by Hudha','Henna by Huda'], other:'Something else'},
  {id:'showName', type:'single', q:'Should your <em>own name</em> appear on the website?', opts:['Yes, show my name','No, only the brand name']},
- {id:'realName', type:'text', q:'What name should we show?', help:'Exactly as you want visitors to see it.', ph:'e.g. Hudha', showIf:function(a){ return a.showName==='Yes, show my name'; }},
+ {id:'realName', type:'text', q:'What name should we show?', help:'Exactly as you want visitors to see it.', ph:'e.g. Hudha', showIf:function(a){ return a.showName && a.showName.sel==='Yes, show my name'; }},
  {id:'story', type:'long', q:'Tell your <em>story</em> in a few lines', help:'In your own words: how you started mehendi, what you love about it, what clients can expect. Malayalam or English is fine.', ph:'I started doing mehendi when…'},
  {id:'years', type:'text', q:'How long have you been doing <em>mehendi</em>?', ph:'e.g. 3 years, since 2021'},
  {id:'occasions', type:'multi', q:'Which <em>occasions</em> do you take bookings for?', help:'Tick all that apply.', opts:['Bridal','Engagement','Party','Eid','Baby shower','Haldi / Mehendi night','Kids'], other:'Other occasions'},
